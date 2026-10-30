@@ -1,1 +1,271 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividade sobre Criptografia</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    margin: 0;
+    padding: 20px;
+    color: #222;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #aaa;
+}
+
+h1 {
+    text-align: center;
+    color: #173b70;
+}
+
+h2 {
+    color: #2456a6;
+}
+
+.questao {
+    background: #f5f7fb;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+button {
+    background: #2456a6;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #173b70;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.correta {
+    color: green;
+}
+
+.incorreta {
+    color: red;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 90%;
+    margin-top: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 Atividade sobre Criptografia</h1>
+
+<p>
+A criptografia é uma técnica utilizada para proteger informações,
+transformando dados em códigos para impedir que pessoas não autorizadas
+tenham acesso ao seu conteúdo.
+</p>
+
+<form id="quiz">
+
+<!-- QUESTÃO 1 -->
+<div class="questao">
+<h2>1. Questão objetiva</h2>
+<p>O que é criptografia?</p>
+
+<label><input type="radio" name="q1" value="a">
+A) Um programa para apagar arquivos.</label><br>
+
+<label><input type="radio" name="q1" value="b">
+B) Uma técnica para proteger informações por meio de códigos.</label><br>
+
+<label><input type="radio" name="q1" value="c">
+C) Um tipo de computador.</label><br>
+
+<label><input type="radio" name="q1" value="d">
+D) Uma rede social.</label>
+
+<div id="f1" class="feedback"></div>
+</div>
+
+<!-- QUESTÃO 2 -->
+<div class="questao">
+<h2>2. Verdadeiro ou falso</h2>
+<p>A criptografia ajuda a impedir que pessoas não autorizadas leiam informações protegidas.</p>
+
+<label><input type="radio" name="q2" value="v"> Verdadeiro</label><br>
+<label><input type="radio" name="q2" value="f"> Falso</label>
+
+<div id="f2" class="feedback"></div>
+</div>
+
+<!-- QUESTÃO 3 -->
+<div class="questao">
+<h2>3. Questão dissertativa</h2>
+<p>Explique com suas palavras por que a criptografia é importante na internet.</p>
+
+<textarea id="q3" rows="4" style="width:95%;"></textarea>
+
+<div id="f3" class="feedback"></div>
+</div>
+
+<!-- QUESTÃO 4 -->
+<div class="questao">
+<h2>4. Relacione as colunas</h2>
+
+<p>Relacione cada conceito à sua definição.</p>
+
+<p>1. Criptografia</p>
+<p>2. Chave criptográfica</p>
+<p>3. Descriptografia</p>
+
+<p>A. Processo de transformar dados codificados em informações compreensíveis.</p>
+<p>B. Técnica de proteger informações.</p>
+<p>C. Elemento utilizado para criptografar ou descriptografar dados.</p>
+
+<label>1 corresponde a:
+<select id="r1">
+<option value="">Escolha</option>
+<option value="a">A</option>
+<option value="b">B</option>
+<option value="c">C</option>
+</select>
+</label><br><br>
+
+<label>2 corresponde a:
+<select id="r2">
+<option value="">Escolha</option>
+<option value="a">A</option>
+<option value="b">B</option>
+<option value="c">C</option>
+</select>
+</label><br><br>
+
+<label>3 corresponde a:
+<select id="r3">
+<option value="">Escolha</option>
+<option value="a">A</option>
+<option value="b">B</option>
+<option value="c">C</option>
+</select>
+</label>
+
+<div id="f4" class="feedback"></div>
+</div>
+
+<!-- QUESTÃO 5 -->
+<div class="questao">
+<h2>5. Complete a frase</h2>
+
+<p>
+A __________ é utilizada para proteger informações,
+transformando dados em códigos.
+</p>
+
+<input type="text" id="q5" placeholder="Digite sua resposta">
+
+<div id="f5" class="feedback"></div>
+</div>
+
+<button type="button" onclick="corrigir()">Corrigir atividade</button>
+
+</form>
+
+<h2 id="resultado"></h2>
+
+</div>
+
+<script>
+function corrigir() {
+
+let pontos = 0;
+
+// Questão 1
+let q1 = document.querySelector('input[name="q1"]:checked');
+if(q1 && q1.value === "b") {
+    pontos++;
+    f1.innerHTML = "✅ Correto! A criptografia protege informações por meio de códigos.";
+    f1.className = "feedback correta";
+} else {
+    f1.innerHTML = "❌ Incorreto. Resposta: B. A criptografia protege informações contra acessos não autorizados.";
+    f1.className = "feedback incorreta";
+}
+
+// Questão 2
+let q2 = document.querySelector('input[name="q2"]:checked');
+if(q2 && q2.value === "v") {
+    pontos++;
+    f2.innerHTML = "✅ Verdadeiro! A criptografia dificulta o acesso de pessoas não autorizadas aos dados.";
+    f2.className = "feedback correta";
+} else {
+    f2.innerHTML = "❌ Falso está incorreto. Resposta: Verdadeiro. A criptografia protege a confidencialidade das informações.";
+    f2.className = "feedback incorreta";
+}
+
+// Questão 3
+let q3 = document.getElementById("q3").value.trim();
+if(q3.length >= 10) {
+    pontos++;
+    f3.innerHTML = "✅ Resposta registrada! Uma resposta adequada deve explicar que a criptografia protege dados pessoais, senhas e mensagens contra acessos indevidos.";
+    f3.className = "feedback correta";
+} else {
+    f3.innerHTML = "❌ Desenvolva melhor sua resposta. Explique como a criptografia protege informações.";
+    f3.className = "feedback incorreta";
+}
+
+// Questão 4
+let r1 = document.getElementById("r1").value;
+let r2 = document.getElementById("r2").value;
+let r3 = document.getElementById("r3").value;
+
+if(r1 === "b" && r2 === "c" && r3 === "a") {
+    pontos++;
+    f4.innerHTML = "✅ Correto! 1-B, 2-C e 3-A. Cada conceito foi relacionado à sua definição.";
+    f4.className = "feedback correta";
+} else {
+    f4.innerHTML = "❌ Respostas corretas: 1-B, 2-C e 3-A. Criptografia protege dados, chave criptográfica permite as operações e descriptografia recupera os dados.";
+    f4.className = "feedback incorreta";
+}
+
+// Questão 5
+let q5 = document.getElementById("q5").value.trim().toLowerCase();
+
+if(q5 === "criptografia") {
+    pontos++;
+    f5.innerHTML = "✅ Correto! Criptografia é a técnica utilizada para proteger informações.";
+    f5.className = "feedback correta";
+} else {
+    f5.innerHTML = "❌ Resposta correta: Criptografia. Ela transforma informações em códigos para protegê-las.";
+    f5.className = "feedback incorreta";
+}
+
+document.getElementById("resultado").innerHTML =
+"Você acertou " + pontos + " de 5 questões!";
+
+}
+</script>
+
+</body>
+</html>
+
